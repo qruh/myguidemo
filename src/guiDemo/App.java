@@ -32,6 +32,8 @@ public class App {
 		
 		ButtonStyleDemo buttonStyle = new ButtonStyleDemo();
 		buttonStyle.showGui();
+		
+		System.out.println("done");
 	}
 	
 	
