@@ -1,16 +1,5 @@
 package guiDemo;
 
-
-
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
-
 public class App {
 	
 	public static void main(String[] args) {
@@ -31,13 +20,9 @@ public class App {
 		//quitButton.showGui();
 		
 		ButtonStyleDemo buttonStyle = new ButtonStyleDemo();
-		buttonStyle.showGui();
+		//buttonStyle.showGui();	
 		
-		System.out.println("done");
+		TextFieldEventsDemo textDemo = new TextFieldEventsDemo();
+		textDemo.showGui();
 	}
-	
-	
-	
-	
-
 }
