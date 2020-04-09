@@ -1,0 +1,3 @@
+module myguidemo {
+	requires swt;
+}
