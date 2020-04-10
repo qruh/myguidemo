@@ -1,5 +1,7 @@
 package guiDemo;
 
+import swtLayout.LayoutDemo;
+
 public class App {
 	
 	public static void main(String[] args) {
@@ -23,6 +25,9 @@ public class App {
 		//buttonStyle.showGui();	
 		
 		TextFieldEventsDemo textDemo = new TextFieldEventsDemo();
-		textDemo.showGui();
+		//textDemo.showGui();
+		
+		LayoutDemo layoutDemo = new LayoutDemo();
+		layoutDemo.showGuiFillLayout();
 	}
 }

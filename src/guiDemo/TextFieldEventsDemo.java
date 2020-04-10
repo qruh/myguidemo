@@ -51,6 +51,7 @@ public class TextFieldEventsDemo {
 		label.setSize(100, 25);
 		label.setLocation(20,60);
 		
+		// close button
 		quitBtn = new Button(shell, SWT.PUSH);
 		quitBtn.setText("Close");
 		quitBtn.setBounds(20, 100, 50, 100);
