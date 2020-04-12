@@ -28,6 +28,10 @@ public class App {
 		//textDemo.showGui();
 		
 		LayoutDemo layoutDemo = new LayoutDemo();
-		layoutDemo.showGuiFillLayout();
+		//layoutDemo.showGuiAbsolute();
+		//layoutDemo.showGuiFillLayout();
+		//layoutDemo.showGuiRowLayout();
+		layoutDemo.showGuiButtons();
+		
 	}
 }
