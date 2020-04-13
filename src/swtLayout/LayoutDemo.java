@@ -1,6 +1,7 @@
 package swtLayout;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
@@ -8,12 +9,18 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
 
 public class LayoutDemo {
 	
@@ -163,6 +170,205 @@ public class LayoutDemo {
 		}
 		display.dispose();
 	}
+	
+	public void showGuiNewFolder() {
+		display = new Display();
+		shell = new Shell(display, SWT.SHELL_TRIM | SWT.CENTER);
+		shell.setLayout(new FormLayout());
+		
+		Label label = new Label(shell, SWT.LEFT );
+		label.setText("Name:");
+		
+		FormData data1 = new FormData();
+		data1.left = new FormAttachment(0, 5);
+		data1.top = new FormAttachment(0, 10);
+		label.setLayoutData(data1);
+		
+		Text text = new Text(shell, SWT.SINGLE );
+		FormData data2 = new FormData();
+		data2.left = new FormAttachment(label, 15);
+		data2.top = new FormAttachment(0,10);
+		data2.right = new FormAttachment(100, -5);
+		text.setLayoutData(data2);
+		
+		Composite com = new Composite(shell, SWT.NONE);
+		RowLayout rowLayout = new RowLayout();
+		com.setLayout(rowLayout);
+		
+		Button okBtn = new Button(com, SWT.PUSH);
+		okBtn.setText("OK");
+		okBtn.setLayoutData(new RowData(80,30));
+		
+		Button closeBtn = new Button(com, SWT.PUSH);
+		closeBtn.setText("Close");
+		closeBtn.setLayoutData(new RowData(80,30));
+		closeBtn.addListener(SWT.Selection, new Listener() {
+
+			@Override
+			public void handleEvent(Event event) {
+				// TODO Auto-generated method stub
+				shell.getDisplay().dispose();
+				System.exit(0);
+			}			
+		});
+		
+		FormData data3 = new FormData();
+		data3.bottom = new FormAttachment(100, -5);
+		data3.right = new FormAttachment(100, 0);
+		com.setLayoutData(data3);
+		
+		Text mainText = new Text(shell, SWT.MULTI | SWT.BORDER);
+		FormData data4 = new FormData();
+		data4.width = 250;
+		data4.height = 180;
+		data4.top = new FormAttachment(text, 10);
+		data4.left = new FormAttachment(0,5);
+		data4.right = new FormAttachment(100,-5);
+		data4.bottom = new FormAttachment(com, -10);
+		mainText.setLayoutData(data4);
+		
+		shell.setText("New folder");
+		shell.pack();
+		shell.open();
+		
+		while(!shell.isDisposed()) {
+			if(!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+		display.dispose();
+	}
+	public void showGuiFormData() {
+		display = new Display();
+		shell = new Shell(display);
+		
+		shell.setLayout(new FormLayout());
+		
+		FormData formData = new FormData();
+		formData.width = 100;
+		formData.height = 200;
+		
+		Button button1 = new Button(shell, SWT.PUSH);
+		button1.setText("Close");
+		button1.setLayoutData(formData);
+		button1.addListener(SWT.Selection, new Listener() {
+
+			@Override
+			public void handleEvent(Event event) {
+				shell.getDisplay().dispose();
+				System.exit(0);
+			}			
+		});
+		
+		shell.setText("FormData");
+		shell.setSize(450,400);
+		shell.open();
+		
+		while(!shell.isDisposed()) {
+			if(!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+		display.dispose();
+	}
+	public void showGuiGridLayout() {
+		display = new Display();
+		shell = new Shell(display, SWT.SHELL_TRIM | SWT.CENTER);
+		
+		Color color = new Color(display, 100,200,100);
+		shell.setBackground(color);
+		color.dispose();
+		
+		GridLayout gridLayout = new GridLayout(2, false);
+		shell.setLayout(gridLayout);
+		
+		Label label1 = new Label(shell, SWT.NONE);
+		label1.setText("Label 1");;
+		GridData gd1 = new GridData(SWT.FILL, SWT.FILL, true, true);
+		label1.setLayoutData(gd1);
+		
+		Color color1 = new Color(display, 250,155,100);
+		label1.setBackground(color1);
+		color1.dispose();
+		
+		Label label2 = new Label(shell, SWT.NONE);
+		label2.setText("Label 2");
+		GridData gd2 = new GridData(SWT.FILL, SWT.FILL, true, true);
+		gd2.heightHint=100;
+		label2.setLayoutData(gd2);
+		
+		Color color2 = new Color(display,10,155,100);
+		label2.setBackground(color2);
+		color2.dispose();
+		
+		Label label3 = new Label(shell, SWT.CENTER );
+		label3.setText("Label 3");
+		GridData gd3 = new GridData(SWT.FILL, SWT.FILL, true, true);
+		gd3.widthHint = 300;
+		gd3.heightHint = 100;	
+		gd3.horizontalSpan = 2;
+		label3.setLayoutData(gd3);
+		
+		Color color3 = new Color(display, 100,205,200);
+		label3.setBackground(color3);
+		color3.dispose();
+		
+		shell.setText("Grid Layout");
+		shell.pack();
+		shell.open();
+		
+		while(!shell.isDisposed()) {
+			if(!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+		display.dispose();
+	}
+	public void showGuiCalculator() {
+		display = new Display();
+		shell = new Shell(display, SWT.DIALOG_TRIM | SWT.CENTER);
+		
+		GridLayout gridLayout = new GridLayout(4, true);
+		gridLayout.marginHeight = 5;
+		shell.setLayout(gridLayout);
+		
+		String [] buttons = { "Cls", "Bck", "", "Close", "7", "8", "9", "/", "4",
+	            "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+" };
+		
+		Text text = new Text(shell, SWT.SINGLE);
+		GridData gridData = new GridData();
+		gridData.horizontalSpan = 4;
+		gridData.horizontalAlignment = GridData.FILL;
+		text.setLayoutData(gridData);
+		
+		for(int i=0; i < buttons.length; i++) {
+			
+			if(i==2) {
+				Label label = new Label(shell, SWT.CENTER);
+				GridData gd = new GridData(SWT.FILL , SWT.FILL, false, false);
+				label.setLayoutData(gd);
+			}
+			else {
+				Button button = new Button(shell, SWT.PUSH);
+				button.setText(buttons[i]);
+				GridData gd = new GridData(SWT.FILL, SWT.FILL, false, false);
+				gd.widthHint = 70;
+				gd.heightHint = 50;
+				button.setLayoutData(gd);
+			}			
+		}
+		
+		shell.setText("Calculator");
+		shell.pack();
+		shell.open();
+		
+		while(!shell.isDisposed()) {
+			if(!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+		display.dispose();
+	}	
 }
 
 

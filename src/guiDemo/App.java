@@ -31,7 +31,10 @@ public class App {
 		//layoutDemo.showGuiAbsolute();
 		//layoutDemo.showGuiFillLayout();
 		//layoutDemo.showGuiRowLayout();
-		layoutDemo.showGuiButtons();
-		
+		//layoutDemo.showGuiButtons();
+		//layoutDemo.showGuiNewFolder();
+		//layoutDemo.showGuiFormData();
+		//layoutDemo.showGuiGridLayout();
+		layoutDemo.showGuiCalculator();
 	}
 }
