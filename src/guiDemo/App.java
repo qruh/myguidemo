@@ -41,6 +41,6 @@ public class App {
 		MenuToolbar menuToolbar = new MenuToolbar();
 		menuToolbar.showSimpleMenu();
 		
-		// änderung nur für neuen feature-branch "toolbars"...
+		// 3 änderung nur für neuen feature-branch "toolbars"...
 	}
 }
