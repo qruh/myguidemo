@@ -1,5 +1,6 @@
 package guiDemo;
 
+import menuToolbars.MenuToolbar;
 import swtLayout.LayoutDemo;
 
 public class App {
@@ -35,6 +36,11 @@ public class App {
 		//layoutDemo.showGuiNewFolder();
 		//layoutDemo.showGuiFormData();
 		//layoutDemo.showGuiGridLayout();
-		layoutDemo.showGuiCalculator();
+		//layoutDemo.showGuiCalculator();
+		
+		MenuToolbar menuToolbar = new MenuToolbar();
+		menuToolbar.showSimpleMenu();
+		
+		// änderung nur für neuen feature-branch "toolbars"...
 	}
 }
