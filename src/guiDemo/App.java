@@ -39,8 +39,20 @@ public class App {
 		//layoutDemo.showGuiCalculator();
 		
 		MenuToolbar menuToolbar = new MenuToolbar();
-		menuToolbar.showSimpleMenu();
+		//menuToolbar.showSimpleMenu();
+		//menuToolbar.showSubMenu();
+		menuToolbar.showCheckMenuItem();		
 		
-		// 345 änderung nur für neuen feature-branch "toolbars"...19:31
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
