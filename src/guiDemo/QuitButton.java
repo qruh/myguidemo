@@ -15,7 +15,6 @@ public class QuitButton {
 	Shell shell;
 	Button quitBtn;
 	
-	@SuppressWarnings("unused")
 	public void showGui() {
 		display = new Display();
 		shell = new Shell(display, SWT.SHELL_TRIM | SWT.CENTER);
