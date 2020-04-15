@@ -7,6 +7,9 @@ import java.util.Date;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Device;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
@@ -17,6 +20,8 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.ToolBar;
+import org.eclipse.swt.widgets.ToolItem;
 
 public class MenuToolbar {
 
@@ -233,7 +238,112 @@ public class MenuToolbar {
 		}
 		
 	}
+	
+	public void showPopUpMenu() {
+		display = new Display();
+		shell = new Shell(display);
+		
+		Menu menu = new Menu(shell, SWT.POP_UP);
+		MenuItem minItem = new MenuItem(menu, SWT.PUSH);
+		minItem.setText("Minimize");
+		
+		minItem.addListener(SWT.Selection, new Listener() {
 
+			@Override
+			public void handleEvent(Event event) {
+				shell.setMinimized(true);
+			}			
+		});
+		
+		MenuItem exitItem = new MenuItem(menu, SWT.PUSH);
+		exitItem.setText("Exit");
+		exitItem.addListener(SWT.Selection, event -> {
+			shell.getDisplay().dispose();
+			System.exit(0);
+		});
+		
+		shell.setText("Popup menu");
+		shell.setMenu(menu);
+		shell.setSize(300,250);
+		shell.open();
+		
+		while(!shell.isDisposed()) {
+			if(!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+		display.dispose();		
+	}
+	public void showSimpleToolbar() {
+		
+		Image newi = null;
+		Image  opei = null;
+		Image quii = null;
+		
+		display = new Display();
+		shell = new Shell(display, SWT.SHELL_TRIM | SWT.CENTER);
+		
+		Device dev = shell.getDisplay();
+	
+		try {
+						
+			newi = new Image(dev, "images/newi.png");
+			newi = resizeImage(dev,newi, 50,50);
+			opei = new Image(dev, "images/opei.png");
+			opei = resizeImage(dev, opei, 50,50);
+			quii = new Image(dev, "images/quii.png");
+			quii = resizeImage(dev, quii,50,50);
+		}
+		catch (Exception e){
+			System.out.println("Cannot load images");
+			System.out.println(e.getMessage());
+			System.exit(1);
+		}
+		
+		ToolBar toolBar = new ToolBar(shell,  SWT.FLAT );
+		
+		ToolItem item1 = new ToolItem(toolBar, SWT.PUSH );
+		item1.setImage(newi);
+		
+		ToolItem item2 = new ToolItem(toolBar, SWT.PUSH );		
+		item2.setImage(opei);
+		
+		ToolItem separator = new ToolItem(toolBar, SWT.SEPARATOR | SWT.FILL );
+		
+		ToolItem item3 = new ToolItem(toolBar, SWT.PUSH);
+		item3.setImage(quii);
+		
+		toolBar.pack();
+		
+		item3.addListener(SWT.Selection, event -> {
+			shell.getDisplay().dispose();
+			System.exit(0);
+		});
+		
+		shell.setText("Simple toolbar");
+		shell.setSize(300,250);
+		shell.open();
+		
+		while(!shell.isDisposed()) {
+			if(!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+		newi.dispose();
+		opei.dispose();
+		quii.dispose();
+		display.dispose();		
+	}
+	private Image resizeImage(Device dev, Image image, int width, int height) {
+		
+		Image result=null;
+		
+		ImageData imgData = image.getImageData();
+		imgData = imgData.scaledTo(width, height);
+		result = new Image(dev,imgData);
+		
+		return result;
+	}
 }
 
 

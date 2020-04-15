@@ -41,8 +41,9 @@ public class App {
 		MenuToolbar menuToolbar = new MenuToolbar();
 		//menuToolbar.showSimpleMenu();
 		//menuToolbar.showSubMenu();
-		menuToolbar.showCheckMenuItem();		
-		
+		//menuToolbar.showCheckMenuItem();	
+		//menuToolbar.showPopUpMenu();
+		menuToolbar.showSimpleToolbar();
 	}
 }
 
