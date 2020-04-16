@@ -2,6 +2,7 @@ package guiDemo;
 
 import menuToolbars.MenuToolbar;
 import swtLayout.LayoutDemo;
+import swtWidgets.WidgetsDemo;
 
 public class App {
 	
@@ -43,7 +44,14 @@ public class App {
 		//menuToolbar.showSubMenu();
 		//menuToolbar.showCheckMenuItem();	
 		//menuToolbar.showPopUpMenu();
-		menuToolbar.showSimpleToolbar();
+		//menuToolbar.showSimpleToolbar();
+		
+		WidgetsDemo widgets = new WidgetsDemo();
+		//widgets.showLabel();
+		//widgets.showCheckButton();
+		//widgets.showSpinner();
+		//widgets.showListWidget();
+		widgets.showSlider();
 	}
 }
 
