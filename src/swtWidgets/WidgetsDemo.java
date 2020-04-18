@@ -5,6 +5,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.FormAttachment;
@@ -13,12 +14,15 @@ import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Slider;
 import org.eclipse.swt.widgets.Spinner;
+
+import myUtilities.MyImage;
 
 public class WidgetsDemo {
 	
@@ -224,10 +228,18 @@ public class WidgetsDemo {
 		Device dev = shell.getDisplay();
 		
 		try {
+			MyImage myImage = new MyImage();
 			mute = new Image(dev, "images/mute.png");
+			mute = myImage.resizeImage(dev,mute,25,25);
+			
 			min = new Image(dev, "images/min.png");
+			min = myImage.resizeImage(dev,min,25,25);			
+			
 			med = new Image(dev, "images/med.png");
+			med = myImage.resizeImage(dev,med,25,25);
+			
 			max = new Image(dev, "images/max.png");
+			max = myImage.resizeImage(dev,max,25,25);
 		}
 		catch (Exception e) {
 			System.out.println("Cannon load images");
@@ -239,7 +251,7 @@ public class WidgetsDemo {
 		layout.marginLeft = 30;
 		layout.marginTop = 30;
 		layout.spacing = 30;
-		layout.fill = true;
+		//layout.fill = true;
 		shell.setLayout(layout);
 		
 		Slider slider = new Slider(shell, SWT.HORIZONTAL);
@@ -261,6 +273,10 @@ public class WidgetsDemo {
 			}
 		}
 		display.dispose();
+		mute.dispose();
+		min.dispose();
+		med.dispose();
+		max.dispose();
 	}
 	private void onSelection(Slider slider, Label label, Image mute, Image min, Image med, Image max) {
 		
@@ -279,6 +295,45 @@ public class WidgetsDemo {
 		else {
 			label.setImage(max);
 		}
+	}	
+	public void showComboWidget() {
+		
+		display = new Display();
+		shell = new Shell(display , SWT.SHELL_TRIM | SWT.CENTER);
+		
+		RowLayout layout = new RowLayout(SWT.VERTICAL);
+		layout.marginLeft = 50;
+		layout.marginTop = 30;
+		layout.spacing = 30;
+		shell.setLayout(layout);
+		
+		Combo combo = new Combo(shell, SWT.DROP_DOWN);
+		combo.add("Ubuntu");
+	    combo.add("Fedora");
+	    combo.add("Arch");
+	    combo.add("Red Hat");
+	    combo.add("Mint");
+	    
+	    combo.setLayoutData(new RowData(150,-1));    
+	    
+	    Label label = new Label(shell, SWT.LEFT);
+	    label.setText("...");
+	    
+	    combo.addListener(SWT.Selection, event -> {
+	    	label.setText(combo.getText());
+	    	label.pack();
+	    });
+	    
+	    shell.setText("Combo");
+	    shell.setSize(300,250);
+	    shell.open();
+	    
+	    while(!shell.isDisposed()) {
+	    	if(!display.readAndDispatch()) {
+	    		display.sleep();
+	    	}
+	    }
+	    display.dispose();
 	}
 }
 

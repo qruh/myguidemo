@@ -23,6 +23,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
+import myUtilities.MyImage;
+
 public class MenuToolbar {
 
 	Display display;
@@ -286,13 +288,13 @@ public class MenuToolbar {
 		Device dev = shell.getDisplay();
 	
 		try {
-						
+			MyImage myImage = new MyImage();			
 			newi = new Image(dev, "images/newi.png");
-			newi = resizeImage(dev,newi, 50,50);
+			newi = myImage.resizeImage(dev,newi, 50,50);			
 			opei = new Image(dev, "images/opei.png");
-			opei = resizeImage(dev, opei, 50,50);
+			opei = myImage.resizeImage(dev, opei, 50,50);
 			quii = new Image(dev, "images/quii.png");
-			quii = resizeImage(dev, quii,50,50);
+			quii = myImage.resizeImage(dev, quii,50,50);
 		}
 		catch (Exception e){
 			System.out.println("Cannot load images");
@@ -333,17 +335,7 @@ public class MenuToolbar {
 		opei.dispose();
 		quii.dispose();
 		display.dispose();		
-	}
-	private Image resizeImage(Device dev, Image image, int width, int height) {
-		
-		Image result=null;
-		
-		ImageData imgData = image.getImageData();
-		imgData = imgData.scaledTo(width, height);
-		result = new Image(dev,imgData);
-		
-		return result;
-	}
+	}	
 }
 
 

@@ -51,7 +51,8 @@ public class App {
 		//widgets.showCheckButton();
 		//widgets.showSpinner();
 		//widgets.showListWidget();
-		widgets.showSlider();
+		//widgets.showSlider();
+		widgets.showComboWidget();
 	}
 }
 
