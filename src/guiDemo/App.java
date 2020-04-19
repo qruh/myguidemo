@@ -2,6 +2,7 @@ package guiDemo;
 
 import menuToolbars.MenuToolbar;
 import swtLayout.LayoutDemo;
+import swtTableWidget.TableWidget;
 import swtWidgets.WidgetsDemo;
 
 public class App {
@@ -52,7 +53,13 @@ public class App {
 		//widgets.showSpinner();
 		//widgets.showListWidget();
 		//widgets.showSlider();
-		widgets.showComboWidget();
+		//widgets.showComboWidget();
+		
+		TableWidget tableWidget = new TableWidget();
+		//tableWidget.showEmptyTable();
+		//tableWidget.showFilledTable();
+		//tableWidget.showSelectingRow();
+		tableWidget.showTableAddItems();
 	}
 }
 
