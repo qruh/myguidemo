@@ -1,7 +1,9 @@
 package guiDemo;
 
 import menuToolbars.MenuToolbar;
+import swtDialogs.SwtDialog;
 import swtLayout.LayoutDemo;
+import swtPainting.ColorsDemo;
 import swtTableWidget.TableWidget;
 import swtWidgets.WidgetsDemo;
 
@@ -59,7 +61,26 @@ public class App {
 		//tableWidget.showEmptyTable();
 		//tableWidget.showFilledTable();
 		//tableWidget.showSelectingRow();
-		tableWidget.showTableAddItems();
+		//tableWidget.showTableAddItems();
+		
+		SwtDialog dialog = new SwtDialog();
+		//dialog.showMessageBox();
+		//dialog.showApplicationClosing();
+		//dialog.showDirectoryDialog();
+		//dialog.showFontDialog();
+		//dialog.showFontDialog();
+		//dialog.showColorDialog();
+		//dialog.showFileDialog();
+		
+		ColorsDemo colors = new ColorsDemo();
+		//colors.showColorsDemo();
+		//colors.showLineStyles();
+		//colors.showBasicShapes();
+		//colors.showPolygon();
+		//colors.showTransparentRectangles();
+		//colors.showDonut();
+		//colors.showDrawingText();
+		colors.showTextLayoutStyleColor();
 	}
 }
 
