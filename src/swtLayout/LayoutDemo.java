@@ -470,7 +470,14 @@ public class LayoutDemo {
 		radioGender[1].setLayoutData(fdMale);
 		
 		// Group Occupation
-		// TODO
+		Group groupJob = new Group(shell, SWT.SHADOW_ETCHED_IN);
+		groupJob.setText("Occupation");
+		FormData fdJobGroup = new FormData();
+		fdJobGroup.top = new FormAttachment(groupPerson,5);
+		fdJobGroup.left = new FormAttachment(2,0);
+		fdJobGroup.right = new FormAttachment(98,0);	
+		fdJobGroup.bottom = new FormAttachment(95,0);
+		groupJob.setLayoutData(fdJobGroup);
 				
 		shell.setText("My Formlayout");
 		shell.setSize(350,300);	
