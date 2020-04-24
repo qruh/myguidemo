@@ -1,6 +1,8 @@
 package guiDemo;
 
+import dataTypeDemo.DataTypeDemo;
 import menuToolbars.MenuToolbar;
+import regularExpression.RegularExpressionDemo;
 import swtDialogs.SwtDialog;
 import swtLayout.LayoutDemo;
 import swtPainting.ColorsDemo;
@@ -42,6 +44,8 @@ public class App {
 		//layoutDemo.showGuiGridLayout();
 		//layoutDemo.showGuiCalculator();
 		
+		layoutDemo.showMyForm();
+		
 		MenuToolbar menuToolbar = new MenuToolbar();
 		//menuToolbar.showSimpleMenu();
 		//menuToolbar.showSubMenu();
@@ -80,7 +84,15 @@ public class App {
 		//colors.showTransparentRectangles();
 		//colors.showDonut();
 		//colors.showDrawingText();
-		colors.showTextLayoutStyleColor();
+		//colors.showTextLayoutStyleColor();
+		
+		DataTypeDemo typeDemo = new DataTypeDemo();
+		//typeDemo.showDataTypes();
+		
+		RegularExpressionDemo regexDemo = new RegularExpressionDemo();
+		//regexDemo.findWordsA("das auto ist im autohaus");
+		//System.out.println(regexDemo.toString());
+		//System.out.println(regexDemo);
 	}
 }
 
