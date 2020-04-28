@@ -10,11 +10,11 @@ import org.eclipse.swt.widgets.Shell;
 
 public class DateTimeDemo {
 	
-	public void showDateTime() {
+	public void showDateTime(Shell shellParent) {
 		
 		// setup the SWT window
-		Display display = new Display();
-		final Shell shell = new Shell(display);
+		//Display display = new Display();
+		final Shell shell = new Shell(shellParent);
 		shell.setLayout(new RowLayout());
 		
 		// initialize a parent composite with a grid layout manager
@@ -29,12 +29,13 @@ public class DateTimeDemo {
 		DateTime dateD = new DateTime(parent, SWT.DATE | SWT.DROP_DOWN);
 		shell.pack();
 		shell.open();
-		while(!shell.isDisposed()) {
+		/*while(!shell.isDisposed()) {
 			if(!display.readAndDispatch()) {
 				display.sleep();
 			}
 		}
 		// tear down the SWT window
-		display.dispose();		
+		display.dispose();
+		*/		
 	}
 }

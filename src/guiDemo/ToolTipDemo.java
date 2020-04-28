@@ -17,10 +17,10 @@ public class ToolTipDemo {
 	
 	static int counter=0;
 	
-	public void showToolTip() {
+	public void showToolTip(Shell shellParent) {
 		
-		display = new Display();
-		shell = new Shell(display, (SWT.SHELL_TRIM | SWT.CENTER) & (~SWT.RESIZE));
+		//display = new Display();
+		shell = new Shell(shellParent, (SWT.SHELL_TRIM | SWT.CENTER) & (~SWT.RESIZE));
 		
 		button1 = new Button(shell, SWT.PUSH);
 		button1.setText("click me");
@@ -57,10 +57,12 @@ public class ToolTipDemo {
 		shell.setToolTipText("This is a Shell-Window.");
 		shell.open();
 		
+		/*
 		while(!shell.isDisposed()) {
 			if(!display.readAndDispatch()) {
 				display.sleep();
 			}
 		}
+		*/
 	}
 }

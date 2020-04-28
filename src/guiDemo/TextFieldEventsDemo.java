@@ -21,9 +21,10 @@ public class TextFieldEventsDemo {
 	Label label;
 	Button quitBtn;
 	
-	public void showGui() {
-		display = new Display();
-		shell = new Shell(display);
+	public void showGui(Shell shellParent) {
+		//display = new Display();
+		//shell = new Shell(display);
+		shell = new Shell(shellParent);
 		
 		text = new Text(shell, SWT.SINGLE | SWT.BORDER);
 		text.setSize(100, 25);
@@ -74,12 +75,14 @@ public class TextFieldEventsDemo {
 		
 		shell.setSize(250, 200);
 		shell.open();
+		/*
 		while(!shell.isDisposed()) {
 			if(!display.readAndDispatch()) {
 				display.sleep();
 			}
 		}
 		display.dispose();
+		*/
 	}
 
 }

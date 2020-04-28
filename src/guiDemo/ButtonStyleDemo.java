@@ -24,9 +24,9 @@ public class ButtonStyleDemo {
 	
 	Label label;
 	
-	public void showGui() {	
-		display = new Display();
-		shell = new Shell(display);
+	public void showGui(Shell shellParent) {	
+		//display = new Display();
+		shell = new Shell();
 		
 		// push button
 		pushBtn = new Button(shell, SWT.PUSH);
@@ -341,12 +341,14 @@ public class ButtonStyleDemo {
 		
 		shell.setSize(500,500);
 		shell.open();
+		/*
 		while(!shell.isDisposed()) {
 			if(!display.readAndDispatch()) {
 				display.sleep();
 			}
 		}
 		display.dispose();
+		*/
 	}
 	
 	private void writeToTextfield(String s) {

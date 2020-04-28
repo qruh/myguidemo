@@ -15,10 +15,10 @@ public class ButtonDemo {
 	Button button1,button2;
 	Text text1;	
 	
-	public void showButtonDemo() {
+	public void showButtonDemo(Shell parent) {
 		
-		display = new Display();
-		shell = new Shell(display);
+		//display = new Display();
+		shell = new Shell(parent);
 		
 		button1 = new Button(shell, SWT.PUSH);
 		button1.setText("Close");
@@ -64,12 +64,14 @@ public class ButtonDemo {
 		shell.setText("SWT Demo");
 		shell.setSize(300, 200);
 		shell.open();
-		
+		/*
 		while(!shell.isDisposed()) {
 			if(!display.readAndDispatch()) {
 				display.sleep();
 			}
 		}
+		display.dispose();
+		*/
 	}
 	private void changeTextField() {
 		text1.setText("Button clicked");

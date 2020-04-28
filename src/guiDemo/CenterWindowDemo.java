@@ -11,9 +11,9 @@ public class CenterWindowDemo {
 	Rectangle bds;
 	Point p;
 	
-	public void showCenterWindow() {
-		display = new Display();
-		shell = new Shell(display);
+	public void showCenterWindow(Shell shellParent) {
+		//display = new Display();
+		shell = new Shell(shellParent);
 		shell.setText("Center");
 		shell.setSize(250,200);		
 				
@@ -26,12 +26,12 @@ public class CenterWindowDemo {
 		shell.setBounds(nLeft, nTop, p.x, p.y);	
 		shell.open();
 		
+		/*
 		while(!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
 			}
 		}
+		*/
 	}
-	
-
 }

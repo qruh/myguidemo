@@ -14,6 +14,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
@@ -21,6 +22,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.widgets.Text;
 
 public class LayoutDemo {
@@ -370,127 +372,7 @@ public class LayoutDemo {
 		}
 		display.dispose();
 	}	
-	public void showMyForm() {
-		display = new Display();
-		shell = new Shell(display);
-		
-		shell.setLayout(new FormLayout());
-		
-		// Group Person
-		Group groupPerson = new Group(shell, SWT.SHADOW_IN );
-		FormData fdGroupPerson = new FormData();
-		fdGroupPerson.top = new FormAttachment(5,0);
-		fdGroupPerson.left = new FormAttachment(2,0);
-		fdGroupPerson.right = new FormAttachment(98,0);
-						
-		groupPerson.setText("Person");
-		groupPerson.setLayoutData(fdGroupPerson);
-		FormLayout grpLayout1 = new FormLayout();		
-		groupPerson.setLayout(new FormLayout());
-		
-		// Person data
-		Label labelName = new Label(groupPerson, SWT.CENTER);
-		labelName.setText("Name:");		
-		FormData fdLabelName = new FormData();
-		fdLabelName.top = new FormAttachment(10,0);
-		fdLabelName.left = new FormAttachment(5,0);
-		fdLabelName.right = new FormAttachment(20,0);
-		labelName.setLayoutData(fdLabelName);
-		
-		Text textName = new Text(groupPerson, SWT.NONE);
-		textName.setToolTipText("Enter your name here");		
-		FormData fdTextName = new FormData();
-		fdTextName.top = new FormAttachment(10,0);
-		fdTextName.left = new FormAttachment(labelName, 5);
-		fdTextName.right = new FormAttachment(100,-5);
-		textName.setLayoutData(fdTextName);
-		
-		Label labelStreet = new Label(groupPerson, SWT.CENTER);
-		labelStreet.setText("Street:");
-		FormData fdLabelStreet = new FormData();
-		fdLabelStreet.top = new FormAttachment(labelName, 5);
-		fdLabelStreet.left = new FormAttachment(5,0);
-		fdLabelStreet.right = new FormAttachment(20,0);
-		labelStreet.setLayoutData(fdLabelStreet);
-		
-		Text textStreet = new Text(groupPerson, SWT.NONE);
-		textStreet.setToolTipText("Enter your street and housenumber here");
-		FormData fdTextStreet = new FormData();
-		fdTextStreet.top = new FormAttachment(textName, 5);
-		fdTextStreet.left = new FormAttachment(labelStreet, 5);
-		fdTextStreet.right = new FormAttachment(100,-5);
-		textStreet.setLayoutData(fdTextStreet);
-		
-		Label labelZipCode = new Label(groupPerson, SWT.CENTER);
-		labelZipCode.setText("Zip:");
-		FormData fdZipcode = new FormData();
-		fdZipcode.top = new FormAttachment(labelStreet, 5);
-		fdZipcode.left = new FormAttachment(5,0);
-		fdZipcode.right = new FormAttachment(20,0);
-		labelZipCode.setLayoutData(fdZipcode);		
-		
-		Text textZipcode = new Text(groupPerson, SWT.NONE);
-		textZipcode.setToolTipText("Enter your Zipcode here");
-		FormData fdTextZipcode = new FormData();
-		fdTextZipcode.top = new FormAttachment(textStreet,5);
-		fdTextZipcode.left = new FormAttachment(labelZipCode, 5);
-		fdTextZipcode.right = new FormAttachment(50,0);
-		textZipcode.setLayoutData(fdTextZipcode);
-		
-		Label labelCity = new Label(groupPerson, SWT.RIGHT  );
-		labelCity.setText("City:");
-		FormData fdLabelCity = new FormData();
-		fdLabelCity.top = new FormAttachment(textStreet, 5);
-		fdLabelCity.left = new FormAttachment(textZipcode, 5);		
-		labelCity.setLayoutData(fdLabelCity);
-		
-		Text textCity = new Text(groupPerson, SWT.NONE);
-		textCity.setToolTipText("Enter your city here");
-		FormData fdTextCity = new FormData();
-		fdTextCity.top = new FormAttachment(textStreet, 5);
-		fdTextCity.left = new FormAttachment(labelCity,5);
-		fdTextCity.right = new FormAttachment(100,-5);
-		textCity.setLayoutData(fdTextCity);
-		
-		Button [] radioGender = new Button[2];
-		radioGender[0] = new Button(groupPerson, SWT.RADIO);
-		radioGender[0].setText("Female");
-		FormData fdFemale = new FormData();
-		fdFemale.top = new FormAttachment(labelZipCode, 5);
-		//fdFemale.left = new FormAttachment(5,50);
-		fdFemale.right = new FormAttachment(40,0);
-		radioGender[0].setLayoutData(fdFemale);
-		
-		radioGender[1] = new Button(groupPerson, SWT.RADIO);
-		radioGender[1].setText("Male");
-		FormData fdMale = new FormData();
-		fdMale.top = new FormAttachment(labelZipCode, 5);
-		//fdMale.left = new FormAttachment(cbGender[0],50 );
-		fdMale.right = new FormAttachment(75,0);
-		radioGender[1].setLayoutData(fdMale);
-		
-		// Group Occupation
-		Group groupJob = new Group(shell, SWT.SHADOW_ETCHED_IN);
-		groupJob.setText("Occupation");
-		FormData fdJobGroup = new FormData();
-		fdJobGroup.top = new FormAttachment(groupPerson,5);
-		fdJobGroup.left = new FormAttachment(2,0);
-		fdJobGroup.right = new FormAttachment(98,0);	
-		fdJobGroup.bottom = new FormAttachment(95,0);
-		groupJob.setLayoutData(fdJobGroup);
-				
-		shell.setText("My Formlayout");
-		shell.setSize(350,300);	
-		shell.setMinimumSize(350,300);
-		shell.open();
-		
-		while(!shell.isDisposed()) {
-			if(!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
-		display.dispose();
-	}
+	
 }
 
 
