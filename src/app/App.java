@@ -12,13 +12,13 @@ import guiDemo.ButtonDemo;
 import guiDemo.ButtonStyleDemo;
 import guiDemo.CenterWindowDemo;
 import guiDemo.DateTimeDemo;
-import guiDemo.MultipleShells;
 import guiDemo.QuitButton;
 import guiDemo.TextFieldEventsDemo;
 import guiDemo.ToolTipDemo;
 import menuToolbars.MenuToolbar;
 import regularExpression.RegularExpressionDemo;
 import swtDialogs.SwtDialog;
+import swtEvents.EventDemo;
 import swtLayout.LayoutDemo;
 import swtLayout.MyForm;
 import swtPainting.ColorsDemo;
@@ -33,13 +33,14 @@ public class App {
 	
 	public static void main(String[] args) {
 		
+		
 		display = new Display();
 		shell = new Shell(display, SWT.SHELL_TRIM);
 		
 		combo = new Combo(shell, SWT.DROP_DOWN);
 		combo.setLocation(10,10);		
 		String [] items = {"","Button Demo","DateTime Demo","Centered Window"
-				,"show Tooltip","Button Styles","Textfield Event"};
+				,"show Tooltip","Button Styles","Textfield Event","Event Demo"};
 		combo.setItems(items);
 		combo.addListener(SWT.Selection, new Listener() {
 
@@ -74,9 +75,16 @@ public class App {
 					TextFieldEventsDemo textDemo = new TextFieldEventsDemo();
 					textDemo.showGui(shell);
 					break;
+				case 7:
+					EventDemo eventDemo = new EventDemo();
+					//eventDemo.showEventModelPattern(shell);
+					//eventDemo.showDisplayFilterEvent(shell,display);
+					//eventDemo.showTypedEvent(shell, display);
+					//eventDemo.showUntypedEventListener(shell, display);
+					eventDemo.showEventTypeGet(shell, display);
+					break;
 				}
-			}
-			
+			}			
 		}); //new MyComboListener());
 		combo.pack();
 		
@@ -162,7 +170,7 @@ public class App {
 		
 		MyForm myForm = new MyForm();
 		//myForm.showMyForm();
-		
+				
 		shell.setText("Gui");
 		shell.setSize(250,200);		
 		shell.open();
@@ -173,6 +181,8 @@ public class App {
 			}
 		}
 		display.dispose();		
+		
+		
 	}
 }
 

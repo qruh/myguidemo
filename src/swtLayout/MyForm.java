@@ -20,6 +20,9 @@ public class MyForm {
 	Display display;
 	Shell shell;
 	
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public void showMyForm() {
 		
 		display = new Display();
