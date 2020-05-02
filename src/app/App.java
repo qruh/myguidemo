@@ -81,7 +81,8 @@ public class App {
 					//eventDemo.showDisplayFilterEvent(shell,display);
 					//eventDemo.showTypedEvent(shell, display);
 					//eventDemo.showUntypedEventListener(shell, display);
-					eventDemo.showEventTypeGet(shell, display);
+					//eventDemo.showEventTypeGet(shell, display);
+					eventDemo.showCompositePaintListener(shell, display);
 					break;
 				}
 			}			
